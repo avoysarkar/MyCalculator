@@ -15,6 +15,16 @@ app.post("/index.html",function(req,res){
     res.send("The sum is: "+result);
 });
 
+app.get("/mybmiCalculator.html",function(req,res){
+    // res.send("<h1>BMI Calculator</h1>");
+    res.sendFile(__dirname+"/mybmiCalculator.html");
+});
+
+app.post("/mybmiCalculator.html",function(req,res){
+    var resbmi = Number(req.body.weight)/Math.pow(Number(req.body.height),2);
+    res.send("Your BMI is "+resbmi);
+});
+
 app.listen(2000,function(){
     console.log("Server at 2000")
 });
